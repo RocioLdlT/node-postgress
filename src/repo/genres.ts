@@ -8,11 +8,11 @@ export class GenreRepo{
         this.pool = pool;
     }
 
-    async const readAllGenres () {
+    async readAllGenres () {
         const{rows} = await this.pool.query<Genre>('SELECT genre_id AS id, name FROM genres')
         return rows;
     }
-    async const readGenreById (id: number){
+    async readGenreById (id: number){
         const q =`
         SELECT genre_id AS id, name
         FROM genres
