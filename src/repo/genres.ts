@@ -1,6 +1,10 @@
-import debug from "debug";
+import debug from 'debug';
+import { env } from '../config/env.ts';
 import type { Genre } from '../entities/genre.ts';
 import type { Pool } from "pg";
+
+const log = debug (`${env.PROJECT_NAME}:repo.genres`);
+log("Starting genres repository...");
 
 export class GenreRepo{
     private pool: Pool
@@ -12,7 +16,7 @@ export class GenreRepo{
         const{rows} = await this.pool.query<Genre>('SELECT genre_id AS id, name FROM genres')
         return rows;
     }
-    async readGenreById (id: number){
+    async readGenreById (id: number): Promise<Genre>{
         const q =`
         SELECT genre_id AS id, name
         FROM genres
