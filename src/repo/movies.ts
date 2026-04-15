@@ -12,12 +12,12 @@ export class MoviesRepo {
         this.pool = pool;
     }
 
-    async readAllGenres() {
+    async readAllMoviesWithGenres() {
         const q = `
             SELECT 
-            movie_id AS id,
+            movie_id as id,
             title,
-            release_year AS releaseYear,
+            release_year as year,
             director,
             duration,
             poster,
