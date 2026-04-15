@@ -39,5 +39,4 @@ describe("GenresRepo", async () => {
             assert.strictEqual((error as SqlError).code, "NOT_FOUND");
         }
     });
-    it
 });
