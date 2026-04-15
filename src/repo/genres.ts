@@ -6,7 +6,7 @@ import type { Pool } from "pg";
 const log = debug (`${env.PROJECT_NAME}:repo.genres`);
 log("Starting genres repository...");
 
-export class GenreRepo{
+export class GenresRepo{
     private pool: Pool
     constructor (pool: Pool){
         this.pool = pool;
